@@ -73,7 +73,7 @@ class FormViewState extends State<FormView> {
                   },
                   optionsViewBuilder: (context, onSelected, options) {
                     return Container(
-                      constraints: BoxConstraints(maxHeight: 100),
+                      constraints: const BoxConstraints(maxHeight: 100),
                       color: Colors.white,
                       child: Align(
                         alignment: Alignment.topLeft,
@@ -172,11 +172,11 @@ class FormViewState extends State<FormView> {
               decoration: InputDecoration(
                 isDense: input.showInAppBar,
                 prefixIcon: input.prefixIcon,
-                errorBorder: new OutlineInputBorder(
-                    borderSide: new BorderSide(color: Colors.grey, width: 0.0),
+                errorBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.grey, width: 0.0),
                     borderRadius: BorderRadius.circular(15)),
-                focusedErrorBorder: new OutlineInputBorder(
-                    borderSide: new BorderSide(color: Colors.grey, width: 0.0),
+                focusedErrorBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.grey, width: 0.0),
                     borderRadius: BorderRadius.circular(15)),
                 prefixIconConstraints:
                     const BoxConstraints(minHeight: 36, minWidth: 40),
@@ -212,7 +212,7 @@ class FormViewState extends State<FormView> {
     for (var input in widget.inputs) {
       String value = input.controller.text.trim();
       if (input.type == FormInputType.date) {
-        value = "${value} ${DateTime.now().toString().split(" ")[1]}";
+        value = "$value ${DateTime.now().toString().split(" ")[1]}";
       }
       if (!_formKey.currentState!.validate() && checkRequired) {
         throw Exception("${input.name} is required");

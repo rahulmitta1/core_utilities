@@ -27,7 +27,7 @@ ThemeData getTheme(Color primaryColor, Color normalBlack, Color borderColor,
           titleTextStyle: const TextStyle(
               fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
           backgroundColor: primaryColor),
-      tabBarTheme: TabBarTheme(
+      tabBarTheme: TabBarThemeData(
         indicatorColor: primaryColor,
         labelColor: Colors.white,
         labelStyle: const TextStyle(fontWeight: FontWeight.bold),
@@ -66,7 +66,7 @@ ThemeData getTheme(Color primaryColor, Color normalBlack, Color borderColor,
         ),
       ),
       snackBarTheme: const SnackBarThemeData(showCloseIcon: true),
-      dialogTheme: DialogTheme(
+      dialogTheme: DialogThemeData(
         elevation: 2,
         surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
@@ -90,7 +90,7 @@ ThemeData getTheme(Color primaryColor, Color normalBlack, Color borderColor,
           elevation: 10,
           selectedIconTheme: IconThemeData(size: 26),
           selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold)),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
           elevation: 0.6,
           margin: const EdgeInsets.only(bottom: 9),
           color: Colors.white,
@@ -167,7 +167,7 @@ extension CoreUtilities on BuildContext {
               maxHeight: MediaQuery.of(context).size.height * 0.85,
             ),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(15), topRight: Radius.circular(15)),
               color: backgroundColor,
             ),
@@ -218,7 +218,7 @@ extension CoreUtilities on BuildContext {
 
   // NAVIGATION
   void pop<T>([T? result]) {
-    if (!this.mounted) {
+    if (!mounted) {
       return;
     }
     Navigator.of(this).pop(result);
